@@ -2,6 +2,22 @@
 
 AlloHealth is a full-stack Clinic Front Desk Management System built with the **MERN Stack** (MongoDB, Express, React, Node.js). It provides a role-based platform for clinics to manage doctors, nurses, receptionists, patient queues, and appointments in real-time.
 
+## 📸 Screenshots
+
+### Home  
+![Home Screenshot](https://github.com/user-attachments/assets/24cf808e-5a31-4471-8508-cdfb0dff612c)
+
+### Contact  
+![Contact Screenshot](https://github.com/user-attachments/assets/cfd8dab1-ddce-441a-8512-1ba9c07861e9)
+
+### Login  
+![Login Screenshot](https://github.com/user-attachments/assets/fa59c82d-e3af-45b5-a624-b30810c6346b)
+
+### Dashboard  
+![Dashboard Screenshot](https://github.com/user-attachments/assets/32222a94-61eb-4c7f-80cf-52b6ff88bc8c)
+
+### Appointment  
+![Appointment Screenshot](https://github.com/user-attachments/assets/513e31de-3d03-4c5a-bc44-73cf797614cf)
 
 
 🚀 Features
@@ -130,27 +146,6 @@ By default:
 * `DELETE /api/doctor/:id`
 
 More routes are available inside `/routes` folder.
-
-
-## 📸 Screenshots
-
-Home  
-![Home Screenshot](https://github.com/user-attachments/assets/24cf808e-5a31-4471-8508-cdfb0dff612c)
-
-Contact  
-![Contact Screenshot](https://github.com/user-attachments/assets/cfd8dab1-ddce-441a-8512-1ba9c07861e9)
-
-Login  
-![Login Screenshot](https://github.com/user-attachments/assets/fa59c82d-e3af-45b5-a624-b30810c6346b)
-
-Dashboard  
-![Dashboard Screenshot](https://github.com/user-attachments/assets/32222a94-61eb-4c7f-80cf-52b6ff88bc8c)
-
-Appointment  
-![Appointment Screenshot](https://github.com/user-attachments/assets/513e31de-3d03-4c5a-bc44-73cf797614cf)
-
-
-
 
 
 🛠 Future Enhancements
