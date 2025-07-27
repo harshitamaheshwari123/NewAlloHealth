@@ -79,13 +79,16 @@ Step 1: Clone the Repository
 
 bash
 git clone https://github.com/harshitamaheshwari123/NewAlloHealth.git
+
 cd NewAlloHealth
 
 
 Step 2: Backend Setup
 
 bash
+
 cd backend
+
 npm install
 
 
@@ -93,7 +96,9 @@ Create `.env` in backend directory:
 
 
 PORT=5000
+
 MONGO_URL=your_mongodb_connection_string
+
 jwtsecret=your_secret_key
 
 
@@ -101,7 +106,9 @@ jwtsecret=your_secret_key
 Step 3: Frontend Setup
 
 bash
+
 cd ../frontend
+
 npm install
 
 
@@ -111,12 +118,17 @@ npm install
 Start Backend
 
 bash
+
 cd backend
+
 npm start
 
 Start Frontend
+
 bash
+
 cd frontend
+
 npm run dev
 
 By default:
