@@ -67,7 +67,7 @@ function Appointment() {
   };
 
   return (
-    <motion.section className="bg-[#FEFAE0]">
+    <motion.section className="bg-black text-cyan-400">
       <Navbar />
       <div className="h-screen f-screen  flex justify-center items-center">
         <div className=" h-[80%] w-full mt-[80px] flex justify-center items-center gap-5 rounded-xl">

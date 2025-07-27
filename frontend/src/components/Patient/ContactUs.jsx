@@ -50,7 +50,7 @@ function ContactUs() {
   };
 
   return (
-    <section className="h-screen w-screen bg-[#FEFAE0] text-black">
+    <section className="h-screen w-screen bg-black text-cyan-400">
       <Navbar />
       <motion.div
         ref={ref}
@@ -86,7 +86,7 @@ function ContactUs() {
             <br />
             <div className="flex flex-col">
               <span className="text-2xl">Email</span>
-              <span className="text-base">feedback@hms.org</span>
+              <span className="text-base">feedback@allohealth.org</span>
             </div>
           </div>
 
@@ -96,39 +96,43 @@ function ContactUs() {
             animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }}
             transition={{ duration: 1.5 }}
             whileInView={{ opacity: 1 }}
-            className="flex flex-col w-[500px] h-4/5 p-4 justify-center items-center bg-[#FAEDCD] gap-10 border border-black rounded-lg shadow-xl"
+            className="flex flex-col w-[500px] h-4/5 p-4 justify-center items-center bg-black gap-10 border border-cyan-400 rounded-lg shadow-xl"
           >
             <span className="text-3xl font-medium">Get in touch</span>
 
             <input
-              className="flex h-10 w-2/3 rounded-md border border-black bg-transparent px-3 py-2 text-sm placeholder:text-black focus:outline-none focus:ring-1 focus:ring-black"
+              className="flex h-10 w-2/3 rounded-md border border-cyan-400 bg-black px-3 py-2 text-sm text-cyan-400 placeholder:text-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-400"
               type="text"
               placeholder="Name *"
               onChange={(e) => setName(e.target.value)}
+              value={name}
             />
             <input
-              className="flex h-10 w-2/3 rounded-md border border-black bg-transparent px-3 py-2 text-sm placeholder:text-black focus:outline-none focus:ring-1 focus:ring-black"
+              className="flex h-10 w-2/3 rounded-md border border-cyan-400 bg-black px-3 py-2 text-sm text-cyan-400 placeholder:text-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-400"
               type="number"
               placeholder="Phone / Mobile *"
               onChange={(e) => setPhoneNo(e.target.value)}
+              value={phone}
             />
             <input
-              className="flex h-10 w-2/3 rounded-md border border-black bg-transparent px-3 py-2 text-sm placeholder:text-black focus:outline-none focus:ring-1 focus:ring-black"
+              className="flex h-10 w-2/3 rounded-md border border-cyan-400 bg-black px-3 py-2 text-sm text-cyan-400 placeholder:text-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-400"
               type="email"
               placeholder="Email Address *"
               onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
             <textarea
               rows="4"
-              className="flex h-30 w-2/3 rounded-md border border-black bg-transparent px-3 py-2 text-sm placeholder:text-black focus:outline-none focus:ring-1 focus:ring-black"
+              className="flex h-30 w-2/3 rounded-md border border-cyan-400 bg-black px-3 py-2 text-sm text-cyan-400 placeholder:text-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-400"
               placeholder="Message *"
               onChange={(e) => setComment(e.target.value)}
+              value={message}
             ></textarea>
 
             <button
               onClick={handleSubmit}
               type="button"
-              className="rounded-md bg-[#D4A373] px-10 py-3 text-lg font-semibold text-white hover:scale-105 duration-150 active:scale-90"
+              className="rounded-md bg-cyan-400 px-10 py-3 text-lg font-semibold text-black hover:scale-105 duration-150 active:scale-90"
             >
               Submit
             </button>

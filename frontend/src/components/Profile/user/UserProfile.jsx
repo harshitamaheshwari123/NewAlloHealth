@@ -91,16 +91,16 @@ function UserProfile() {
   };
 
   return (
-    <section className="bg-slate-300 flex justify-center items-center">
+    <section className="h-screen w-screen bg-black text-cyan-400">
       {!userData ? (
         <div className="text-center">Loading...</div>
       ) : (
-        <div className="h-[80%] w-[80%] bg-white shadow-xl p-2 flex">
+        <div className="h-[80%] w-[80%] bg-black shadow-xl p-2 flex">
           <UserSidebar
             profiePic={profiePic}
             userName={userData?.userName || "Loading..."}
           />
-          <div className=" w-[70%] ms-24 p-4 flex flex-col justify-around ">
+          <div className="flex-1 p-8 ml-4 bg-black rounded-lg flex flex-col justify-around ">
             <p className="font-semibold text-3xl">Account Settings</p>
             <form action="" className="flex flex-col h-[80%] justify-between">
               <div className="w-full flex justify-between">

@@ -19,11 +19,11 @@ function Navbar() {
   };
 
   return (
-    <div className="bg-[#FEFAE0] h-[80px] w-full fixed z-20">
-      <div className="flex max-w-7xl items-center justify-between m-auto h-full text-black">
+    <div className="bg-black h-[80px] w-full fixed z-20">
+      <div className="flex max-w-7xl items-center justify-between m-auto h-full text-cyan-400">
         <div className="text-5xl font-bold">AlloHealth</div>
 
-        <div className="justify-center items-center gap-6 text-xl hidden md:flex text-black">
+        <div className="justify-center items-center gap-6 text-xl hidden md:flex text-cyan-400">
           <NavLink style={navLinkStyle} to="/">
             Home
           </NavLink>
@@ -40,7 +40,7 @@ function Navbar() {
             Contact Us
           </NavLink>
           <button
-            className="bg-slate-900 text-white p-1 pe-2 ps-2 rounded-full hover:scale-110 hover:bg-slate-800 duration-300 active:scale-90"
+            className="bg-cyan-400 text-black p-1 pe-2 ps-2 rounded-full hover:scale-110 hover:bg-cyan-300 duration-300 active:scale-90"
             onClick={handleClick}
           >
             LogIn
@@ -48,7 +48,7 @@ function Navbar() {
         </div>
 
         <svg
-          className="size-10 md:hidden cursor-pointer z-50 text-black"
+          className="size-10 cursor-pointer z-50 text-cyan-400"
           onClick={handleNav}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -61,16 +61,22 @@ function Navbar() {
           className={
             !isMobNav
               ? "hidden"
-              : "flex flex-col absolute top-0 left-0 h-screen w-screen text-black text-xl justify-center items-center bg-[#FEFAE0] md:hidden"
+              : "flex flex-col absolute top-0 left-0 h-screen w-screen text-black text-xl justify-center items-center bg-[#FEFAE0]"
           }
         >
-          <NavLink className="py-6 text-3xl" style={navLinkStyle} to="/">
+          <NavLink
+            className="py-6 text-3xl"
+            style={navLinkStyle}
+            to="/"
+            onClick={() => setIsMobNav(false)}
+          >
             Home
           </NavLink>
           <NavLink
             className="py-6 text-3xl"
             style={navLinkStyle}
             to="/appointment"
+            onClick={() => setIsMobNav(false)}
           >
             Appointment
           </NavLink>
@@ -78,6 +84,7 @@ function Navbar() {
             className="py-6 text-3xl"
             style={navLinkStyle}
             to="/doctor-search"
+            onClick={() => setIsMobNav(false)}
           >
             Doctor Search
           </NavLink>
@@ -85,6 +92,7 @@ function Navbar() {
             className="py-6 text-3xl"
             style={navLinkStyle}
             to="/about-us"
+            onClick={() => setIsMobNav(false)}
           >
             About Us
           </NavLink>
@@ -92,10 +100,16 @@ function Navbar() {
             className="py-6 text-3xl"
             style={navLinkStyle}
             to="/contact-us"
+            onClick={() => setIsMobNav(false)}
           >
             Contact Us
           </NavLink>
-          <NavLink className="py-6 text-3xl" style={navLinkStyle} to="/sign-in">
+          <NavLink
+            className="py-6 text-3xl"
+            style={navLinkStyle}
+            to="/sign-in"
+            onClick={() => setIsMobNav(false)}
+          >
             SignIn
           </NavLink>
         </div>

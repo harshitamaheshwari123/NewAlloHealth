@@ -35,10 +35,10 @@ function AdminDashboard() {
   }, []);
 
   return (
-    <section className="bg-slate-300 flex justify-center items-center">
-      <div className="h-[80%] w-[80%] bg-white shadow-xl p-2 flex">
+    <section className="h-screen w-screen bg-black text-cyan-400">
+      <div className="h-[80%] w-[80%] bg-black shadow-xl p-2 flex">
         <AdminSidebar userName={"Admin"} profiePic={profiePic} />
-        <div className=" w-[70%] ms-24 p-4 flex flex-col justify-around ">
+        <div className="flex-1 p-8 ml-4 bg-black rounded-lg flex flex-col justify-around ">
           <p className="font-semibold text-3xl text-center">Dashboard</p>
           <div className="w-full  h-[80%] items-center flex flex-col gap-4">
             <div className="flex w-full justify-evenly h-[30%]">

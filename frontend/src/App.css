@@ -1,35 +1,44 @@
-html{
+html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-y: auto;
   scrollbar-width: none;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins',sans-serif;
-  
-
+  font-family: "Poppins", sans-serif;
 }
 
-section{
+section {
   height: 100vh;
   scroll-snap-align: center;
 }
 
 body {
-  background: #000;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #22d3ee;
+  font-family: "Inter", sans-serif;
 }
-a, button {
+a,
+button {
   transition: all 0.2s;
 }
-a:hover, button:hover {
+a:hover,
+button:hover {
   color: #000;
   background: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #22d3ee;
+  border-radius: 4px;
 }

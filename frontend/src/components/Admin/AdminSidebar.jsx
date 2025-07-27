@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import adminProfile from "../../assets/human6.jpg";
-import {useDispatch} from 'react-redux';
+import { useDispatch } from "react-redux";
 import { logout } from "../../redux/UserSlice.js";
 
 const AdminSidebar = ({ profilePic, userName }) => {
@@ -27,7 +27,7 @@ const AdminSidebar = ({ profilePic, userName }) => {
   };
 
   return (
-    <div className="bg-slate- h-full w-[18%] flex flex-col justify-between p-2 ">
+    <div className="bg-black text-cyan-400 h-full w-64 p-4">
       <div className="flex flex-col gap-6">
         <div className="w-full flex flex-col items-center ">
           <img

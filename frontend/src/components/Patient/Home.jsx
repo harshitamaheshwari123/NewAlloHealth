@@ -1,5 +1,3 @@
-import banner from "../../assets/hero.png";
-import service from "../../assets/services.png";
 import human1 from "../../assets/human1.jpg";
 import human4 from "../../assets/human4.jpg";
 import human6 from "../../assets/human6.jpg";
@@ -8,13 +6,13 @@ import doct2 from "../../assets/doct2.jpg";
 import doct3 from "../../assets/doct3.jpg";
 import doct4 from "../../assets/doct4.jpg";
 import doct5 from "../../assets/doct5.jpg";
-import feedback from "../../assets/feedback.png";
 import review from "../../assets/review.jpg";
 import Footer from "../Shared/Footer";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
 import { useState } from "react";
+import { useRef } from "react";
 
 import Swal from "sweetalert2";
 
@@ -47,8 +45,36 @@ function Home() {
       });
   };
 
+  const feedbacks = [
+    {
+      name: "Amit Sharma",
+      text: "The doctors and staff were extremely professional and caring. I felt safe and well taken care of during my treatment.",
+    },
+    {
+      name: "Priya Verma",
+      text: "Clean facilities, quick service, and compassionate nurses. Highly recommend AlloHealth for anyone seeking quality healthcare!",
+    },
+    {
+      name: "Rahul Singh",
+      text: "The appointment process was smooth and the doctors explained everything clearly. Thank you for the excellent care!",
+    },
+    {
+      name: "Sunita Patel",
+      text: "State-of-the-art equipment and a friendly environment. My recovery was much faster than expected!",
+    },
+  ];
+  const [currentFeedback, setCurrentFeedback] = useState(0);
+  const handlePrev = () =>
+    setCurrentFeedback((prev) =>
+      prev === 0 ? feedbacks.length - 1 : prev - 1
+    );
+  const handleNext = () =>
+    setCurrentFeedback((prev) =>
+      prev === feedbacks.length - 1 ? 0 : prev + 1
+    );
+
   return (
-    <div className="bg-[#070707] ">
+    <div className="bg-black text-cyan-400">
       <section>
         <div className="flex flex-col lg:flex-row h-screen w-screen justify-center items-center max-w-7xl m-auto">
           <motion.div
@@ -60,7 +86,7 @@ function Home() {
             className="flex flex-col justify-center"
           >
             <p className="text-3xl font-semibold text-center">
-              The Power to Heal{" "}
+              The Power to Heal
             </p>
             <p className="text-lg text-center">
               To Undertake Specialized And holistic healthcare services of world
@@ -73,16 +99,50 @@ function Home() {
             animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }}
             transition={{ duration: 1.5 }}
             whileInView={{ opacity: 1 }}
-            className="w-full md:w-[80%] lg:w-[100%]"
+            className="w-full md:w-[80%] lg:w-[100%] flex justify-center items-center"
           >
-            <img src={banner} alt="hero" className="h-[400px]  shadow-black" />
+            {/* Simple, professional static hero section */}
+            <div className="flex flex-col items-center justify-center bg-black border-2 border-cyan-400 rounded-2xl shadow-2xl p-10 w-80">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 64 64"
+                className="w-16 h-16 mb-4 text-cyan-400"
+                stroke="currentColor"
+              >
+                <rect
+                  width="48"
+                  height="32"
+                  x="8"
+                  y="16"
+                  rx="6"
+                  fill="#fff"
+                  stroke="#22d3ee"
+                  strokeWidth="3"
+                />
+                <path
+                  d="M32 24v16M24 32h16"
+                  stroke="#22d3ee"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <span className="text-2xl font-bold text-cyan-400">
+                Welcome to AlloHealth
+              </span>
+              <span className="text-base text-cyan-200 mt-2 text-center">
+                Your trusted partner in holistic healthcare
+              </span>
+            </div>
           </motion.div>
         </div>
       </section>
       <motion.section>
-        <div className="w-full h-full flex flex-col justify-center items-center">
-          <p className="font-semibold text-3xl">Why Choose Us?</p>
-          <div className="flex flex-col md:flex-row justify-center  items-center">
+        <div className="w-full h-full flex flex-col justify-center items-center py-16">
+          <p className="font-semibold text-4xl text-center mb-8">
+            Why Choose Us?
+          </p>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className=" w-[350px] h-[300px] md:h-[350px] flex flex-col  justify-evenly md:justify-between">
               <motion.div
                 ref={ref}
@@ -141,9 +201,7 @@ function Home() {
                 </p>
               </motion.div>
             </div>
-            <div className="hidden md:block">
-              <img src={service} alt="services" className="h-[400px]" />
-            </div>
+            {/* Removed image and extra columns, keep only content */}
             <div className=" md:ms-3 w-[350px] h-[250px] md:h-[350px]  flex flex-col  justify-evenly md:justify-between">
               <motion.div
                 ref={ref}
@@ -213,11 +271,12 @@ function Home() {
         whileInView={{ opacity: 1 }}
       >
         <div className="h-full max-w-7xl flex flex-col m-auto justify-center items-center overflow-auto">
-          <p className="font-semibold text-3xl pt-16">Meet Our Specialist</p>
-          <div className="flex flex-col gap-2">
-
+          <p className="font-semibold text-3xl pt-16 mb-8">
+            Meet Our Specialist
+          </p>
+          <div className="flex flex-col gap-2 mb-16">
             <div className="flex gap-3 ">
-              <div className="w-[270px] h-[300px] border border-gray-200 rounded-lg bg-[#D4A373] shadow flex justify-center">
+              <div className="w-[270px] h-[300px] border border-cyan-400 rounded-lg bg-cyan-400 shadow flex justify-center">
                 <div className="flex flex-col items-center justify-center ">
                   <img
                     className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -239,7 +298,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="w-[270px] h-[300px] bg-[#D4A373] border border-gray-200 rounded-lg shadow flex justify-center">
+              <div className="w-[270px] h-[300px] border border-cyan-400 rounded-lg bg-cyan-400 shadow flex justify-center">
                 <div className="flex flex-col items-center justify-center ">
                   <img
                     className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -260,7 +319,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[270px] h-[300px] bg-[#D4A373] border border-gray-200 rounded-lg shadow flex justify-center">
+              <div className="w-[270px] h-[300px] border border-cyan-400 rounded-lg bg-cyan-400 shadow flex justify-center">
                 <div className="flex flex-col items-center justify-center ">
                   <img
                     className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -281,7 +340,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[270px] h-[300px] bg-[#D4A373] border border-gray-200 rounded-lg shadow flex justify-center">
+              <div className="w-[270px] h-[300px] border border-cyan-400 rounded-lg bg-cyan-400 shadow flex justify-center">
                 <div className="flex flex-col items-center justify-center ">
                   <img
                     className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -304,7 +363,7 @@ function Home() {
               </div>
             </div>
             <div className="flex gap-3">
-              <div className="w-[270px] h-[300px] bg-[#D4A373] border border-gray-200 rounded-lg shadow flex justify-center">
+              <div className="w-[270px] h-[300px] border border-cyan-400 rounded-lg bg-cyan-400 shadow flex justify-center">
                 <div className="flex flex-col items-center justify-center ">
                   <img
                     className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -325,7 +384,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[270px] h-[300px] bg-[#D4A373] border border-gray-200 rounded-lg shadow flex justify-center">
+              <div className="w-[270px] h-[300px] border border-cyan-400 rounded-lg bg-cyan-400 shadow flex justify-center">
                 <div className="flex flex-col items-center justify-center ">
                   <img
                     className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -346,7 +405,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[270px] h-[300px] bg-[#D4A373] border border-gray-200 rounded-lg shadow flex justify-center">
+              <div className="w-[270px] h-[300px] border border-cyan-400 rounded-lg bg-cyan-400 shadow flex justify-center">
                 <div className="flex flex-col items-center justify-center ">
                   <img
                     className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -367,7 +426,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="w-[270px] h-[300px] bg-[#D4A373] border border-gray-200 rounded-lg shadow flex justify-center">
+              <div className="w-[270px] h-[300px] border border-cyan-400 rounded-lg bg-cyan-400 shadow flex justify-center">
                 <div className="flex flex-col items-center justify-center ">
                   <img
                     className="w-24 h-24 mb-3 rounded-full shadow-lg"
@@ -392,109 +451,46 @@ function Home() {
           </div>
         </div>
       </motion.section>
-      <section>
-        <div className=" max-w-7xl m-auto flex flex-col justify-center gap-8 items-center w-full h-full overflow-auto ">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inView ? 1 : 0 }}
-            transition={{ duration: 1.5 }}
-            whileInView={{ opacity: 1 }}
-            className="flex flex-col justify-center items-center"
+      {/* FEEDBACK SLIDER SECTION */}
+      <motion.section className="w-full flex flex-col items-center py-16 mt-16">
+        <p className="font-semibold text-4xl text-center mb-8">
+          Patient Feedback
+        </p>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={handlePrev}
+            className="text-cyan-400 text-3xl px-2 hover:text-cyan-200"
           >
-            <p className="text-3xl font-semibold">
-              Our Patients Feedback About Us
-            </p>
-            <p className="text-sm text-center">
-              A hospital is a healthcare institution providing patient treatment
-              with specialized health science and auxiliary healthcare staff and
-              medical equipment.
-            </p>
-          </motion.div>
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: inView ? 1 : 0 }}
-            transition={{ duration: 1.5 }}
-            whileInView={{ opacity: 1 }}
-            className="flex items-center gap-4 "
+            &#8592;
+          </button>
+          <div className="bg-black border-2 border-cyan-400 rounded-xl shadow-xl p-8 w-80 flex flex-col items-center">
+            <span className="text-lg text-cyan-200 mb-2">
+              "{feedbacks[currentFeedback].text}"
+            </span>
+            <span className="text-cyan-400 font-bold mt-2">
+              - {feedbacks[currentFeedback].name}
+            </span>
+          </div>
+          <button
+            onClick={handleNext}
+            className="text-cyan-400 text-3xl px-2 hover:text-cyan-200"
           >
-            <img className="h-[300px] hidden md:block" src={feedback} alt="" />
-            <div className="flex flex-col items-start py-5 p-5 w-[450px] shadow-xl bg-[#E9EDC9] shadow-violet-400 rounded-lg">
-              <div className="flex justify-center items-center">
-                <img
-                  src={review}
-                  className="h-[90px] w-[110px] rounded-full"
-                  alt="profile"
-                />
-                <div className="flex flex-col justify-center items-center ps-3">
-                  <p className="font-semibold">Ms. Rohini</p>
-                  <div className="flex ">
-                    <svg
-                      className="size-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="orange"
-                    >
-                      <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
-                    </svg>
-                    <svg
-                      className="size-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="orange"
-                    >
-                      <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
-                    </svg>
-                    <svg
-                      className="size-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="orange"
-                    >
-                      <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
-                    </svg>
-                    <svg
-                      className="size-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="orange"
-                    >
-                      <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
-                    </svg>
-                    <svg
-                      className="size-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="green"
-                    >
-                      <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <p className="">
-                  I have visited many hospitals but HMS has to be one of the
-                  finest anywhere in the world.{" "}
-                </p>
-                <p>
-                  From the International desk to the private executive room,
-                  service and hospitality has been excellent.
-                </p>
-                <p>
-                  {" "}
-                  I would highly recommend HMS to all. Once again many thanks
-                  for your help.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+            &#8594;
+          </button>
         </div>
-      </section>
+        <div className="flex gap-2 mt-4">
+          {feedbacks.map((_, idx) => (
+            <span
+              key={idx}
+              className={`w-3 h-3 rounded-full ${
+                idx === currentFeedback ? "bg-cyan-400" : "bg-cyan-900"
+              }`}
+            ></span>
+          ))}
+        </div>
+      </motion.section>
       <section>
-        <div className="absolute lg:m-56 md:m-36 sm:m-24 m-20 overflow-hidden">
+        <div className=" absolute lg:m-56 md:m-36 sm:m-24 m-20 overflow-hidden">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, x: -50 }}
@@ -509,8 +505,9 @@ function Home() {
                   Sign up for our weekly newsletter
                 </h2>
                 <p className="mt-4 text-white-600">
-                  Be sure to check out and subscribe to the newsletters of HMS
-                  to stay updated about the developments in healthcare field.
+                  Be sure to check out and subscribe to the newsletters of
+                  AlloHealth to stay updated about the developments in
+                  healthcare field.
                 </p>
                 <div className="mt-4">
                   <p className="font-semibold text-white-800">
@@ -522,7 +519,7 @@ function Home() {
                         className="size-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="orange"
+                        fill="#0891b2"
                       >
                         <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
                       </svg>
@@ -530,7 +527,7 @@ function Home() {
                         className="size-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="orange"
+                        fill="#0891b2"
                       >
                         <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
                       </svg>
@@ -538,7 +535,7 @@ function Home() {
                         className="size-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="orange"
+                        fill="#0891b2"
                       >
                         <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
                       </svg>
@@ -546,7 +543,7 @@ function Home() {
                         className="size-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="orange"
+                        fill="#0891b2"
                       >
                         <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
                       </svg>
@@ -554,7 +551,7 @@ function Home() {
                         className="size-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="green"
+                        fill="#0891b2"
                       >
                         <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17Z"></path>
                       </svg>
@@ -567,11 +564,11 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="mt-10 w-full md:w-2/3 lg:mt-0 lg:w-1/2">
+              <div className="mt-10 w-full md:w-2/3 lg:mt-0 lg:w-1/2 text-cyan-400">
                 <form className="flex lg:justify-center">
                   <div className="flex w-full max-w-md flex-col space-y-4">
                     <input
-                      className="flex h-10 w-full rounded-md border border-white/30 bg-transparent px-3 py-2 text-sm placeholder:text-white-600 focus:outline-none focus:ring-1 focus:ring-white/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md border border-cyan-400 bg-black px-3 py-2 text-sm text-cyan-400 placeholder:text-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       placeholder="Email"
                       onChange={(e) => setEmail(e.target.value)}
@@ -579,14 +576,14 @@ function Home() {
                     <button
                       type="button"
                       onClick={handleNewsletter}
-                      className="w-full rounded-md bg-white px-3 py-2 text-sm  font-semibold text-black shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                      className="w-full rounded-md bg-cyan-400 px-3 py-2 text-sm  font-semibold text-black shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                     >
                       Subscribe
                     </button>
                   </div>
                 </form>
                 <p className="mt-2 lg:text-center">
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-cyan-600">
                     By signing up, you agree to our terms of service and privacy
                     policy.
                   </span>

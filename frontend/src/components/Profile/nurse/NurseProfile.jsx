@@ -25,9 +25,7 @@ function NurseProfile() {
       setAddress(user.address ? user.address.street || "" : "");
       setCity(user.address ? user.address.city || "" : "");
       setState(user.address ? user.address.state || "" : "");
-      const formattedDateOfBirth = user.dob
-        ? user.dob.split("T")[0]
-        : "";
+      const formattedDateOfBirth = user.dob ? user.dob.split("T")[0] : "";
       setdateofBirth(formattedDateOfBirth);
       setGender(user.gender || "");
       setEmail(user.email || "");
@@ -78,12 +76,11 @@ function NurseProfile() {
     }
   };
 
-
   return (
-    <section className="bg-slate-300 flex justify-center items-center">
-      <div className="h-[80%] w-[80%] bg-white shadow-xl p-2 flex">
-      <NurseSidebar profilePic={profilePic} userName={userData.name} />
-        <div className=" w-[70%] ms-24 p-4 flex flex-col justify-around ">
+    <section className="h-screen w-screen bg-black text-cyan-400">
+      <div className="h-[80%] w-[80%] bg-black shadow-xl p-2 flex">
+        <NurseSidebar profilePic={profilePic} userName={userData.name} />
+        <div className="flex-1 p-8 ml-4 bg-black rounded-lg flex flex-col justify-around ">
           <p className="font-semibold text-3xl">Account Settings</p>
           <form action="" className="flex flex-col h-[80%] justify-between">
             <div className="w-full flex justify-between">
