@@ -122,30 +122,7 @@ npm run dev
 By default:
 
 * Frontend: [http://localhost:5173/](http://localhost:5173/)
-* Backend: [http://localhost:5000/](http://localhost:5000/)
-
-
-📌 API Endpoints Overview
-
-### Auth
-
-* `POST /api/auth/register`
-* `POST /api/auth/login`
-* `GET /api/auth/logout`
-
-### Queue
-
-* `POST /api/queue/add`
-* `GET /api/queue/:doctorId`
-* `PUT /api/queue/status/:id`
-
-### Doctor/Nurse
-
-* `GET /api/doctor`
-* `POST /api/doctor`
-* `DELETE /api/doctor/:id`
-
-More routes are available inside `/routes` folder.
+* Backend: [http://localhost:5000/](http://localhost:4451/)
 
 
 🛠 Future Enhancements
