@@ -23,22 +23,20 @@ AlloHealth is a full-stack Clinic Front Desk Management System built with the **
 🚀 Features
 
 ✅ Authentication & Roles
-- Secure login and registration using **JWT & Bcrypt**
+- Secure login and registration using Bcrypt
 - User roles: `Admin`, `Doctor`, `Nurse`, `Receptionist`
 - Role-based routing and UI rendering
 
 🧑‍⚕️ Doctor & Nurse Management
-- Add/update/delete doctors and nurses
-- Assign specializations and availability
+- Add/update/delete doctors and nurse
 
 🧾 Queue Management
-- Add patients to a queue with **auto-assigned queue number**
+- Add patients to a queue with auto-assigned queue number
 - Track queue status: `Waiting`, `With Doctor`, `Completed`
 - View queue by doctor
 
 📅 Appointments
 - Book appointments for patients
-- Track appointment status
 - Update or cancel appointments
 
 
@@ -46,13 +44,13 @@ AlloHealth is a full-stack Clinic Front Desk Management System built with the **
 
 | Technology | Purpose |
 |------------|---------|
-| **MongoDB** | Database for users, doctors, nurses, queues, appointments |
-| **Express.js** | Backend framework |
-| **React.js** | Frontend SPA |
-| **Node.js** | Server environment |
-| **JWT** | Token-based authentication |
-| **Tailwind CSS** | Styling |
-| **SweetAlert2** | Beautiful alerts & notifications |
+| MongoDB | Database for users, doctors, nurses, queues, appointments |
+| Express.js | Backend framework |
+| React.js | Frontend |
+| Node.js | Server environment |
+| JWT | Token-based authentication |
+| Tailwind CSS | Styling |
+| SweetAlert2 | Beautiful alerts & notifications |
 
 
 📁 Folder Structure
